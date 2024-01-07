@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AvatarController;
+use App\Http\Controllers\Profile\AvatarController;
 use App\Models\User;
 
 /*
