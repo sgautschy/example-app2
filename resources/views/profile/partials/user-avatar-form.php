@@ -8,9 +8,13 @@
             Add or update avatar
         </p>
     </header>
-
+    @if (session('status'))
+        <div class="text-red-500">
+            {{ message }}
+        </div>
+    @endif
 <form action="{{ route('profile.avatar') }}" method="post">
-<!-- @csrf -->
+    <!-- @csrf -->
     <!-- @method('patch') -->
     <input type="hidden" name="_method" value="patch" />
     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
