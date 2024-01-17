@@ -6,6 +6,8 @@ use App\Http\Controllers\Profile\AvatarController;
 use App\Models\User;
 use OpenAI\Laravel\Facades\OpenAI;
 use Illuminate\Support\Str;
+use Laravel\Socialite\Facades\Socialite;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -37,18 +39,28 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 
-Route::get('/openai', function(){
+// Route::get('/openai', function(){
     
 
-    $result = OpenAI::images()->create([
-        "model" => "dall-e-3",
-        "prompt" => "create single avatar for user in tech world with cool animated style with the name ".auth()->user()->name." without any words in the image",
-        "n" => 1,
-        "size" => "1024x1024",
-        "quality" => "standard",
+//     $result = OpenAI::images()->create([
+//         "model" => "dall-e-3",
+//         "prompt" => "create single avatar for user in tech world with cool animated style with the name ".auth()->user()->name." without any words in the image",
+//         "n" => 1,
+//         "size" => "1024x1024",
+//         "quality" => "standard",
 
-    ]);
+//     ]);
     
-    return response(['url' => $result->data[0]->url]);
+//     return response(['url' => $result->data[0]->url]);
 
-});
+// });
+
+// Route::get('/auth/redirect', function () {
+//     return Socialite::driver('github')->redirect();
+// });
+
+// Route::get('/auth/callback', function () {
+//     $user = Socialite::driver('github')->user();
+//     dd($user);
+//     // $user->token
+// });
